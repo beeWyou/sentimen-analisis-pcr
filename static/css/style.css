@@ -1,0 +1,398 @@
+/* ========================================= */
+/* GLOBAL */
+/* ========================================= */
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#F4F4F4;
+}
+
+/* ========================================= */
+/* LOGIN */
+/* ========================================= */
+
+.login-page{
+    background:#f3f3f3;
+}
+
+.login-background{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        to bottom,
+        #ececec 40%,
+        #8eb7ff 40%
+    );
+}
+
+.login-card{
+    width:360px;
+    background:#fff;
+    padding:40px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.logo{
+    width:140px;
+    margin-bottom:20px;
+}
+
+.login-card h3{
+    font-weight:bold;
+}
+
+.login-card p{
+    font-size:12px;
+    color:#777;
+    margin-bottom:25px;
+}
+
+.btn-primary{
+    background:#3B5CFF;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#2748d8;
+}
+
+/* Remember Me */
+
+.remember-me{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.remember-me .form-check-input{
+    margin:0;
+    cursor:pointer;
+}
+
+.remember-me .form-check-label{
+    margin:0;
+    cursor:pointer;
+    font-size:14px;
+    color:#555;
+}
+
+/* ========================================= */
+/* LAYOUT */
+/* ========================================= */
+
+.wrapper{
+    display:flex;
+}
+
+.sidebar{
+    width:220px;
+    min-height:100vh;
+    background:#6EA8FE;
+    color:white;
+    padding:30px 20px;
+}
+
+.logo-sidebar{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.sidebar-logo{
+    width:80px;
+    margin-bottom:10px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    color:white;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:white;
+    color:#6EA8FE;
+}
+
+.content{
+    flex:1;
+    background:#F4F4F4;
+    padding:35px;
+    min-height:100vh;
+}
+
+/* ========================================= */
+/* DASHBOARD */
+/* ========================================= */
+
+.dashboard-card{
+    border:none;
+    border-radius:18px;
+    background:#fff;
+}
+
+.dashboard-card .card-body{
+    text-align:center;
+}
+
+.dashboard-card h2{
+    font-weight:bold;
+}
+
+.chart-card{
+    margin-top:40px;
+    border:none;
+    border-radius:18px;
+}
+
+.chart-container{
+    width:280px;
+    height:280px;
+    margin:auto;
+}
+
+.dashboard-title{
+    text-align:center;
+    font-weight:bold;
+    margin:40px 0 30px;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.legend-color{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    margin-right:12px;
+}
+
+/* ========================================= */
+/* UPLOAD PAGE */
+/* ========================================= */
+
+/* HEADER BIRU */
+
+.upload-header{
+    background:#8EB7FF;
+    margin:-35px -35px 0 -35px;
+    padding:25px 35px 85px;
+}
+
+/* Judul */
+
+.page-title{
+    font-size:42px;
+    font-weight:700;
+    color:#111;
+    margin-bottom:35px;
+}
+
+/* Statistik */
+
+.upload-header .dashboard-card{
+    height:75px;
+    border-radius:12px;
+    border:none;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.upload-header .dashboard-card .card-body{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:8px;
+}
+
+.upload-header .dashboard-card small{
+    font-size:13px;
+    color:#555;
+    margin:0;
+}
+
+.upload-header .dashboard-card h2{
+    font-size:28px;
+    font-weight:700;
+    margin:2px 0 0;
+    line-height:1;
+}
+
+/* Card Upload */
+
+.upload-card{
+    border:none;
+    border-radius:18px;
+    margin:-45px auto 0;
+    position:relative;
+    z-index:100;
+    background:#fff;
+}
+
+.upload-card .card-body{
+    padding:35px;
+}
+
+/* Upload Form */
+
+.upload-form{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.file-input{
+    width:280px;      /* sebelumnya 350px */
+    font-size:14px;
+}
+
+.file-input::file-selector-button{
+    padding:6px 12px;
+    font-size:14px;
+}
+
+.btn-upload{
+    width:110px;
+    height:40px;
+    font-size:14px;
+    line-height:1.2;
+    padding:6px 12px;
+}
+
+/* Header Table */
+
+.table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.table-header h3{
+    font-size:38px;
+    font-weight:bold;
+    margin:0;
+}
+
+.date-filter{
+    display:flex;
+    gap:10px;
+}
+
+.date-filter input{
+    width:160px;
+}
+
+/* Table */
+
+.table{
+    background:#fff;
+}
+
+.table thead th{
+    background:#F3F3F3;
+    text-align:center;
+    vertical-align:middle;
+}
+
+.table tbody td{
+    vertical-align:middle;
+}
+
+/* Kolom No */
+
+.table th:nth-child(1),
+.table td:nth-child(1){
+    width:80px;
+    text-align:center;
+}
+
+/* Kolom Tahun */
+
+.table th:nth-child(3),
+.table td:nth-child(3){
+    width:160px;
+    text-align:center;
+}
+
+/* Kolom Sentimen */
+
+.table th:nth-child(4),
+.table td:nth-child(4){
+    width:220px;
+    text-align:center;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 992px){
+
+    /* Sidebar mengecil */
+    .sidebar{
+        width:180px;
+        padding:20px 15px;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    /* Header */
+    .upload-header{
+        margin:-20px -20px 0 -20px;
+        padding:25px 20px 110px;
+    }
+
+    .page-title{
+        font-size:34px;
+    }
+
+    /* Card upload */
+    .upload-card{
+        margin-top:-60px;
+    }
+
+    /* Upload Form */
+    .upload-form{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .file-input{
+        width:100%;
+    }
+
+    .btn-upload{
+        width:120px;
+    }
+
+    /* Header tabel */
+    .table-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .date-filter{
+        width:100%;
+    }
+
+    .date-filter input{
+        width:100%;
+    }
+
+}
+

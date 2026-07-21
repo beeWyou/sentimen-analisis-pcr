@@ -1,0 +1,251 @@
+{% extends 'layout.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h3 class="fw-bold">DASHBOARD</h3>
+
+        {% if tahun_list %}
+        <form method="GET">
+
+            <select name="tahun" class="form-select" onchange="this.form.submit()">
+
+                <option value="">Semua Tahun</option>
+
+                {% for th in tahun_list %}
+
+                <option value="{{ th }}"
+                    {% if tahun_filter|string == th|string %}
+                    selected
+                    {% endif %}
+                >
+                    {{ th }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+        </form>
+        {% endif %}
+
+    </div>
+
+
+    <!-- CARD -->
+    <div class="row g-4">
+
+        <div class="col-md-4">
+
+            <div class="card dashboard-card shadow">
+
+                <div class="card-body text-center">
+
+                    <small>Total Saran Positif</small>
+
+                    <h2>{{ positif }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card dashboard-card shadow">
+
+                <div class="card-body text-center">
+
+                    <small>Total Saran Netral</small>
+
+                    <h2>{{ netral }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card dashboard-card shadow">
+
+                <div class="card-body text-center">
+
+                    <small>Total Saran Negatif</small>
+
+                    <h2>{{ negatif }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JUDUL -->
+    <h4 class="dashboard-title mt-5">
+
+        PERSENTASE SARAN MAHASISWA POLITEKNIK CALTEX RIAU
+
+    </h4>
+
+
+    <!-- PIE CHART -->
+    <div class="card chart-card shadow">
+
+        <div class="card-body">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-6">
+
+                    <div class="chart-container">
+
+                        <canvas id="pieChart"></canvas>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="legend-item">
+
+                        <span class="legend-color bg-danger"></span>
+
+                        Saran Negatif
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-color bg-primary"></span>
+
+                        Saran Netral
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-color bg-success"></span>
+
+                        Saran Positif
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+
+<script>
+
+const positif = Number("{{ positif }}");
+const netral = Number("{{ netral }}");
+const negatif = Number("{{ negatif }}");
+
+
+new Chart(document.getElementById("pieChart"), {
+
+    type:"pie",
+
+    plugins:[ChartDataLabels],
+
+    data:{
+
+        labels:[
+            "Negatif",
+            "Netral",
+            "Positif"
+        ],
+
+        datasets:[{
+
+            data:[
+                negatif,
+                netral,
+                positif
+            ],
+
+            backgroundColor:[
+                "#dc3545",
+                "#0d6efd",
+                "#198754"
+            ]
+
+        }]
+
+    },
+
+
+    options:{
+
+        responsive:true,
+
+        maintainAspectRatio:false,
+
+        plugins:{
+
+            legend:{
+                display:false
+            },
+
+
+            datalabels:{
+
+                color:"#fff",
+
+                font:{
+                    weight:"bold",
+                    size:14
+                },
+
+
+                formatter:function(value, context){
+
+                    let total = context.chart.data.datasets[0].data
+                    .reduce((a,b)=>a+b,0);
+
+                    return (value / total * 100).toFixed(1) + "%";
+
+                }
+
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+
+{% endblock %}
