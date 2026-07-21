@@ -13,10 +13,11 @@ USERNAME = "admin"
 PASSWORD = "admin123"
 
 db = pymysql.connect(
-    host="localhost",
+    host="mysql.railway.internal",
     user="root",
-    password="",
-    database="db_sentimen"
+    password="GvWhjRyqvTxFbsiglPeXGzHcBnpiVsLm",
+    database="railway",
+    port=int("3306")
 )
 
 cursor = db.cursor()
